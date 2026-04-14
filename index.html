@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Tên Của Bạn] - SEO Executive Portfolio</title>
+    <title>[Tên Của Bạn] - Technical SEO CV</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
     <style>
         /* CSS Reset & Variable */
         :root {
@@ -17,7 +20,7 @@
             --accent-glow: rgba(88, 166, 255, 0.3);
             --border-color: #30363d;
             --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            --transition: all 0.3s ease;
+            --transition-smooth: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -32,26 +35,51 @@
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            scroll-behavior: smooth; /* Cuộn mượt khi click link nội bộ */
         }
 
         a {
             text-decoration: none;
             color: inherit;
-            transition: var(--transition);
         }
 
-        /* Container */
+        /* --- PRELOADER (Lớp phủ tải trang) --- */
+        #preloader {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--bg-color);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease;
+        }
+
+        .spinner {
+            width: 40px; height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* --- Container --- */
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 20px;
         }
 
-        /* Utility Class for Reveal Effect */
+        /* --- CẤU TRÚC HIỆU ỨNG CHUYỂN CẢNH (REVEAL) --- */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            transform: translateY(40px);
+            transition: var(--transition-smooth);
         }
 
         .reveal.active {
@@ -59,83 +87,465 @@
             transform: translateY(0);
         }
 
-        /* --- HEADER SECTION --- */
+        /* Tải từng phần bên trong một section */
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition-smooth);
+        }
+
+        /* Thêm delay cho từng item khi load */
+        .reveal.active .reveal-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal.active .reveal-item:nth-child(1) { transition-delay: 0.1s; }
+        .reveal.active .reveal-item:nth-child(2) { transition-delay: 0.2s; }
+        .reveal.active .reveal-item:nth-child(3) { transition-delay: 0.3s; }
+        .reveal.active .reveal-item:nth-child(4) { transition-delay: 0.4s; }
+
+        /* --- 1. HERO SECTION (DẠNG CV, LOAD MƯỢT ĐẦU TIÊN) --- */
         header {
-            text-align: center;
-            padding: 60px 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             border-bottom: 1px solid var(--border-color);
+            text-align: center;
+            position: relative;
+        }
+
+        .cv-main-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 80%;
         }
 
         .avatar-container {
             position: relative;
-            display: inline-block;
             margin-bottom: 20px;
         }
 
         .avatar {
-            width: 120px;
-            height: 120px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            border: 4px solid var(--accent);
-            box-shadow: 0 0 15px var(--accent-glow);
-            transition: var(--transition);
-        }
-
-        .avatar:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px var(--accent);
+            border: 5px solid var(--accent);
+            box-shadow: 0 0 30px var(--accent-glow);
+            object-fit: cover;
         }
 
         .header-name {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -2px;
             margin-bottom: 5px;
-            letter-spacing: -1px;
         }
 
         .header-title {
             color: var(--accent);
-            font-size: 1.1rem;
-            font-weight: 500;
-            margin-bottom: 25px;
+            font-size: 1.2rem;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .quote {
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 600px;
+            line-height: 1.8;
+            border-left: 4px solid var(--border-color);
+            padding-left: 20px;
         }
 
         .social-links {
             display: flex;
-            justify-content: center;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-top: 30px;
         }
 
         .btn-social {
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: var(--transition);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
             background-color: transparent;
-            border: 1px solid var(--border-color);
+            border: 2px solid var(--border-color);
         }
 
         .btn-social:hover {
             background-color: var(--card-bg);
             border-color: var(--accent);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
         }
 
         .btn-social.linkedin { color: #0077B5; }
         .btn-social.email { color: #D14836; }
         .btn-social.website { color: var(--accent); }
 
-        .quote {
-            font-style: italic;
+        /* Nút cuộn xuống dưới cùng Hero */
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            font-size: 1.5rem;
+            color: var(--accent);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* --- CÁC SECTION TIẾP THEO --- */
+        section {
+            padding: 100px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title i {
+            color: var(--accent);
+        }
+
+        /* --- 2. TOOLBOX SECTION (TẢI TỪNG ITEM) --- */
+        .toolbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+
+        .tool-category {
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .tool-list {
+            list-style: none;
             color: var(--text-secondary);
-            font-size: 0.95rem;
-            max-width: 600px;
-            margin:
+            font-size: 1rem;
+        }
+
+        .tool-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tool-list li::before {
+            content: '→';
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* --- 3. PROJECTS SECTION (TẢI TỪNG ITEM) --- */
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            background-color: #1c2128;
+            transform: translateX(10px);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .project-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .project-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-family: monospace;
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .progress-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .progress-label {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .progress-bar-bg {
+            flex: 1;
+            height: 12px;
+            background-color: #30363d;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #2188ff, var(--accent));
+            border-radius: 6px;
+            width: 0; /* Animated with JS */
+            transition: width 1.5s ease-out;
+        }
+
+        .progress-percent {
+            font-family: monospace;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .header-name { font-size: 2.2rem; }
+            .header-title { font-size: 1rem; }
+            .cv-main-info { width: 95%; }
+            .avatar { width: 140px; height: 140px; }
+            .social-links { flex-direction: column; gap: 10px; align-items: center;}
+            .btn-social { width: 90%; justify-content: center;}
+            .project-header { flex-direction: column; gap: 8px; }
+            .section-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="preloader">
+    <div class="spinner"></div>
+</div>
+
+<div class="container">
+    <header class="animate__animated animate__fadeIn">
+        <div class="cv-main-info">
+            <div class="avatar-container animate__animated animate__zoomIn animate__delay-1s">
+                <img src="https://github.com/identicons/xumakha.png" alt="Ảnh Demo CV" class="avatar">
+            </div>
+            
+            <h1 class="header-name animate__animated animate__fadeInUp animate__delay-2s">[Tên Của Bạn]</h1>
+            <p class="header-title animate__animated animate__fadeInUp animate__delay-2s">Technical SEO Executive | Data & Product Strategy</p>
+            
+            <p class="quote animate__animated animate__fadeInUp animate__delay-3s">
+                "Biến dữ liệu thành thứ hạng, biến cấu trúc thành trải nghiệm. Một Technical SEOer am hiểu sản phẩm và SQL."
+            </p>
+
+            <div class="social-links animate__animated animate__fadeInUp animate__delay-3s">
+                <a href="YOUR_LINKEDIN_URL" class="btn-social linkedin" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="mailto:your-email@gmail.com" class="btn-social email">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <a href="#toolbox" class="btn-social website">
+                    <i class="fas fa-tools"></i> Xem Toolbox
+                </a>
+            </div>
+        </div>
+        <a href="#toolbox"><i class="fas fa-chevron-down scroll-down"></i></a>
+    </header>
+
+    <section id="toolbox" class="reveal">
+        <h2 class="section-title"><i class="fas fa-tools"></i> My SEO Toolbox</h2>
+        <div class="toolbox-grid">
+            <div class="tool-card reveal-item">
+                <p class="tool-category">Technical SEO</p>
+                <ul class="tool-list">
+                    <li>Sitemap L2/3 Architecture</li>
+                    <li>Schema JSON-LD</li>
+                    <li>PageSpeed Insights</li>
+                    <li>Robots.txt & Meta</li>
+                </ul>
+            </div>
+            <div class="tool-card reveal-item">
+                <p class="tool-category">Data & SQL</p>
+                <ul class="tool-list">
+                    <li>SQL (Update/Tracking)</li>
+                    <li>GSC API automation</li>
+                    <li>GA4 / BigQuery</li>
+                    <li>Entity Building</li>
+                </ul>
+            </div>
+            <div class="tool-card reveal-item">
+                <p class="tool-category">Core Tools</p>
+                <ul class="tool-list">
+                    <li>Ahrefs / SEMrush</li>
+                    <li>Screaming Frog</li>
+                    <li>Google Search Console</li>
+                    <li>Jira / Team Collaboration</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="reveal">
+        <h2 class="section-title"><i class="fas fa-chart-line"></i> Performance Tracking (2026)</h2>
+
+        <div class="project-card reveal-item">
+            <div class="project-header">
+                <a href="https://worksheetzone.org" target="_blank" class="project-name">Worksheetzone.org</a>
+                <span class="project-meta">Role: SEO Lead</span>
+            </div>
+            <p class="project-desc">Leading growth for multiple sites, implementing complex Schema (FAQ, LearningResource, Person) and managing resources. Targeted KPI for April 2026.</p>
+            <div class="progress-container">
+                <span class="progress-label">Goal: 40,000 Clicks</span>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" data-percent="65"></div>
+                </div>
+                <span class="progress-percent">65%</span>
+            </div>
+        </div>
+
+        <div class="project-card reveal-item">
+            <div class="project-header">
+                <a href="https://fcoplayers.com" target="_blank" class="project-name">fcoplayers.com</a>
+                <span class="project-meta">Role: Product Strategy</span>
+            </div>
+            <p class="project-desc">Product optimization & SQL data management for a massive player database. Developing "Squad Builder" and "Player Comparison" features.</p>
+            <div class="progress-container">
+                <span class="progress-label">Goal: Feature Launch</span>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" data-percent="85"></div>
+                </div>
+                <span class="progress-percent">85%</span>
+            </div>
+        </div>
+
+        <div class="project-card reveal-item">
+            <div class="project-header">
+                <a href="https://easy-pass.app" target="_blank" class="project-name">easy-pass.app</a>
+                <span class="project-meta">Goal: 1k Impr/day</span>
+            </div>
+            <p class="project-desc">Achieving 1,000 impressions/day by April 30, 2026. Ongoing on-page optimization.</p>
+            <div class="progress-container">
+                <span class="progress-label">Progress</span>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" data-percent="40"></div>
+                </div>
+                <span class="progress-percent">40%</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="reveal">
+        <p>&copy; 2026 [Tên Của Bạn]. Optimizing for users first, search engines second.</p>
+        <p>Built with ❤️ on GitHub Pages.</p>
+    </footer>
+</div>
+
+<script>
+    // --- 1. XỬ LÝ PRELOADER & HIỆU ỨNG LOAD TRANG ---
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        // Ẩn Preloader mượt mà
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 1000); // Đợi 1s sau khi fade-out
+    });
+
+    // --- 2. XỬ LÝ HIỆU ỨNG CHUYỂN CẢNH KHI SCROLL (Reveal on Scroll) ---
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150; // Khoảng cách từ dưới lên để kích hoạt
+
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+                // Kích hoạt animation thanh progress bên trong section này
+                activateProgressBars(reveals[i]);
+            }
+        }
+    }
+
+    // --- 3. HIỆU ỨNG THANH PROGRESS CHẠY DẦN ---
+    function activateProgressBars(container) {
+        var progressBars = container.querySelectorAll(".progress-bar-fill");
+        progressBars.forEach(function(bar) {
+            if (!bar.classList.contains('animated')) {
+                var percent = bar.getAttribute("data-percent");
+                bar.style.width = percent + "%";
+                bar.classList.add('animated'); // Đánh dấu chỉ chạy 1 lần
+            }
+        });
+    }
+
+    // Lắng nghe sự kiện scroll và chạy Reveal lần đầu khi load
+    window.addEventListener("scroll", reveal);
+    // Chạy reveal() một lần khi load để hiện phần Hero nếu cần
+    // (trong cấu trúc này Hero đã load bằng Animate.css nên reveal() chủ yếu dùng cho scroll)
+    window.addEventListener("load", reveal);
+</script>
+
+</body>
+</html>
