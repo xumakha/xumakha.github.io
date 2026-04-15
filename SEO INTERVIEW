@@ -1,0 +1,52 @@
+50 Câu Hỏi Phỏng Vấn SEO Theo Cấp Độ: Fresher, Junior, Specialist và Lead
+10 câu hỏi phỏng vấn SEO Junior
+SEO Junior là người đã có nền, bắt đầu ship task độc lập. Nhà tuyển dụng không chỉ hỏi bạn biết gì, mà hỏi bạn đã làm gì và kết quả ra sao. Không có output chứng minh là điểm yếu lớn nhất ở cấp độ này.
+Câu 21. Bạn đã từng tự audit website chưa, quy trình bạn làm như thế nào?
+NTD muốn biết gì: Kiểm tra tư duy có hệ thống và biết ưu tiên.
+Trả lời đúng hướng: Mô tả quy trình cụ thể: bắt đầu từ crawl để tìm lỗi kỹ thuật, tiếp đến kiểm tra index, canonical, sau đó xem intent từng trang chính, rồi CTR và cấu trúc liên kết nội bộ.
+Kiến thức thực sự cần có: Biết dùng Screaming Frog hoặc Ahrefs để crawl, biết đọc Google Search Console ở mức trung cấp, và biết ưu tiên sửa theo mức độ tác động. Xem: Audit SEO Website là gì?
+Câu 22. Kể một case bạn đã tự làm, kết quả cụ thể là gì?
+NTD muốn biết gì: Kiểm tra năng lực thực tế. Nhà tuyển dụng không ngại case nhỏ nếu có số liệu thật.
+Trả lời đúng hướng: Trình bày theo cấu trúc: vấn đề là gì, bạn làm gì, kết quả đo được thế nào. Có ảnh chụp màn hình càng tốt. Một case nhỏ thật còn tốt hơn một case lớn không có bằng chứng.
+Kiến thức thực sự cần có: Có ít nhất một dự án thực tế dù là blog cá nhân hay website cho người thân. Biết đọc và trình bày số liệu từ Google Search Console hoặc Google Analytics 4.
+Câu 23. Canonical là gì, khi nào cần dùng?
+NTD muốn biết gì: Kiểm tra kiến thức kỹ thuật căn bản mà Junior bắt buộc phải biết.
+Trả lời đúng hướng: Canonical là thẻ HTML chỉ định URL chính thức khi có nhiều URL trùng hoặc tương tự nội dung. Dùng khi có URL tham số, trang phân trang, hoặc nội dung xuất hiện ở nhiều đường dẫn khác nhau.
+Kiến thức thực sự cần có: Hiểu canonical tag không phải redirect. Biết canonical sai có thể khiến trang sai được index thay vì trang đúng.
+Câu 24. Bạn xử lý URL có impression cao nhưng CTR thấp thế nào trong thực tế?
+NTD muốn biết gì: Kiểm tra quy trình tối ưu CTR, không chỉ nói lý thuyết.
+Trả lời đúng hướng: Vào Google Search Console, lọc truy vấn dẫn đến trang đó, xem SERP thực tế để biết title đang thiếu gì so với đối thủ, thử viết lại title nêu rõ lợi ích hoặc kết quả người đọc nhận được, theo dõi CTR sau 2 đến 4 tuần.
+Kiến thức thực sự cần có: Biết tìm CTR gap trong Google Search Console, hiểu title tag và meta description ảnh hưởng đến CTR như thế nào.
+Câu 25. Pillar page và cluster page khác nhau thế nào?
+NTD muốn biết gì: Kiểm tra hiểu biết về kiến trúc nội dung, không chỉ biết viết bài đơn lẻ.
+Trả lời đúng hướng: Pillar page là trang bao quát một chủ đề lớn theo intent tổng, làm trung tâm cho cả cụm. Cluster page đi sâu vào một nhánh intent cụ thể và liên kết về pillar. Hai loại phải liên kết nội bộ qua lại để tăng topical authority.
+Kiến thức thực sự cần có: Hiểu mô hình Content Hub, biết lý do xây cluster là để phủ intent theo chiều rộng và chiều sâu, không phải viết nhiều bài vô tổ chức.
+Câu 26. Bạn nghiên cứu từ khóa theo search intent như thế nào?
+NTD muốn biết gì: Kiểm tra quy trình thực tế, không chỉ biết tên công cụ.
+Trả lời đúng hướng: Bắt đầu từ chủ đề kinh doanh, khai phá từ khóa bằng công cụ, sau đó phân nhóm theo intent: tìm hiểu, so sánh, mua. Gán mỗi nhóm vào tầng phễu TOFU, MOFU, BOFU tương ứng, từ đó xác định loại nội dung phù hợp.
+Kiến thức thực sự cần có: Biết phân loại từ khóa theo intent, không chỉ theo volume. Hiểu rằng từ khóa có search volume cao không luôn là từ khóa nên ưu tiên nếu không phù hợp với mục tiêu kinh doanh.
+Câu 27. Nếu traffic giảm đột ngột 30%, bạn kiểm tra gì trước tiên?
+NTD muốn biết gì: Kiểm tra khả năng chẩn đoán vấn đề theo thứ tự logic.
+Trả lời đúng hướng: Kiểm tra ngay Google Search Console: traffic giảm theo nhóm trang nào, theo truy vấn nào, từ ngày nào. Đối chiếu với lịch sử thay đổi website. Kiểm tra xem có trùng với thời điểm Google cập nhật thuật toán không.
+Kiến thức thực sự cần có: Biết đọc báo cáo hiệu suất theo trang và theo truy vấn trong Google Search Console. Biết phân biệt giảm do kỹ thuật, do nội dung hay do thuật toán.
+Câu 28. Bạn dùng Google Search Console để làm gì trong công việc hằng ngày?
+NTD muốn biết gì: Kiểm tra mức độ thành thạo công cụ căn bản nhất của nghề SEO.
+Trả lời đúng hướng: Theo dõi hiệu suất tìm kiếm theo trang và theo truy vấn, phát hiện URL không được index, kiểm tra crawl errors, tìm CTR gap, gửi sitemap, dùng URL Inspection để kiểm tra trạng thái từng trang.
+Kiến thức thực sự cần có: Dùng thành thạo Google Search Console ở mức trung cấp: biết đọc Performance Report, Coverage Report và URL Inspection.
+Câu 29. Liên kết nội bộ được đặt như thế nào mới đúng?
+NTD muốn biết gì: Kiểm tra hiểu biết về vai trò thực sự của liên kết nội bộ, không chỉ đặt link cho có.
+Trả lời đúng hướng: Liên kết nội bộ đặt theo logic người đọc cần đi đến đâu tiếp theo, không đặt ngẫu nhiên. Anchor text phải mô tả đúng nội dung trang đích. Ưu tiên dẫn về trang dịch vụ hoặc trang chuyển đổi từ các bài nội dung.
+Kiến thức thực sự cần có: Hiểu liên kết nội bộ phục vụ đồng thời người dùng và Googlebot. Biết tránh liên kết mồ côi và tránh quá nhiều liên kết không có chủ đích.
+Câu 30. Core Web Vitals là gì và tại sao quan trọng?
+NTD muốn biết gì: Kiểm tra nhận thức về tín hiệu trải nghiệm người dùng trong SEO.
+Trả lời đúng hướng: Core Web Vitals là bộ ba chỉ số đo trải nghiệm người dùng theo chuẩn của Google: LCP (tốc độ tải nội dung chính), INP (độ phản hồi khi tương tác) và CLS (mức độ ổn định layout). Đây là tín hiệu xếp hạng chính thức.
+Kiến thức thực sự cần có: Biết đo Core Web Vitals qua PageSpeed Insights hoặc Google Search Console, hiểu ngưỡng “tốt”, “cần cải thiện” và “kém” để ưu tiên sửa đúng.
+Bài tiếp theo là: 10 câu hỏi phỏng vấn SEO Specialist
+⸻
+Tôi là người dạy SEO đúng với Khóa Học SEO Master, Mentor SEO 1 kèm 1 và Tư Vấn Lỗi SEO 1-Day Intensive (dịch vụ chẩn đoán bệnh website trong 1 ngày).
+Tôi thích chia sẻ giá trị thật, để người làm SEO đi đúng hướng và làm đúng từ gốc.
+Hãy chia sẻ bài viết này nếu bạn thấy hữu ích.
+#VLINKASIA
+#HOCSEO
+#SEO_ĐÚNG
+#HocSEOMaster
