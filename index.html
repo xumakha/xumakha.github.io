@@ -1,550 +1,320 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tuan Nguyen Vu - Technical SEO CV</title>
+    <title>Official CDL Manuals by State | Download PDF - Easy-Prep</title>
+    <meta name="description" content="Select your state to download the most recent official CDL handbook. Boost your preparation with free CDL practice tests and guides on Easy-Prep.">
+    <link rel="canonical" href="https://easy-prep.org/cdl-manuals" />
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* CSS Reset & Variable */
         :root {
-            --bg-color: #0d1117; /* GitHub Dark Blue */
-            --card-bg: #161b22;
-            --text-primary: #c9d1d9;
-            --text-secondary: #8b949e;
-            --accent: #58a6ff; /* SEO Blue */
-            --accent-glow: rgba(88, 166, 255, 0.3);
-            --border-color: #30363d;
-            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            --transition-smooth: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            --primary: #1a56db;
+            --primary-hover: #1e429f;
+            --accent: #059669; /* Xanh lá cho Practice Test */
+            --text-dark: #1f2937;
+            --text-muted: #4b5563;
+            --bg-light: #f9fafb;
+            --card-bg: #ffffff;
+            --border: #e5e7eb;
+            --radius: 8px;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-dark); background-color: var(--bg-light); line-height: 1.6; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
 
-        body {
-            font-family: var(--font-family);
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-            scroll-behavior: smooth; /* Cuộn mượt khi click link nội bộ */
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* --- PRELOADER (Lớp phủ tải trang) --- */
-        #preloader {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: var(--bg-color);
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 1s ease;
-        }
-
-        .spinner {
-            width: 40px; height: 40px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--accent);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* --- Container --- */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* --- CẤU TRÚC HIỆU ỨNG CHUYỂN CẢNH (REVEAL) --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: var(--transition-smooth);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Tải từng phần bên trong một section */
-        .reveal-item {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: var(--transition-smooth);
-        }
-
-        /* Thêm delay cho từng item khi load */
-        .reveal.active .reveal-item {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal.active .reveal-item:nth-child(1) { transition-delay: 0.1s; }
-        .reveal.active .reveal-item:nth-child(2) { transition-delay: 0.2s; }
-        .reveal.active .reveal-item:nth-child(3) { transition-delay: 0.3s; }
-        .reveal.active .reveal-item:nth-child(4) { transition-delay: 0.4s; }
-
-        /* --- 1. HERO SECTION (DẠNG CV, LOAD MƯỢT ĐẦU TIÊN) --- */
-        header {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-bottom: 1px solid var(--border-color);
+        /* Hero & Search Section */
+        .hero-section {
             text-align: center;
+            padding: 50px 0;
+            background: linear-gradient(180deg, #edf2f7 0%, var(--bg-light) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-section h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 16px; color: #111827; }
+        .hero-section p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 30px; }
+
+        .search-box {
+            max-width: 550px;
+            margin: 0 auto;
             position: relative;
-        }
-
-        .cv-main-info {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            width: 80%;
-        }
-
-        .avatar-container {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .avatar {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 5px solid var(--accent);
-            box-shadow: 0 0 30px var(--accent-glow);
-            object-fit: cover;
-        }
-
-        .header-name {
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: -2px;
-            margin-bottom: 5px;
-        }
-
-        .header-title {
-            color: var(--accent);
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-        }
-
-        .quote {
-            font-style: italic;
-            color: var(--text-secondary);
-            font-size: 1rem;
-            max-width: 600px;
-            line-height: 1.8;
-            border-left: 4px solid var(--border-color);
-            padding-left: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .btn-social {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 25px;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            background-color: transparent;
-            border: 2px solid var(--border-color);
-        }
-
-        .btn-social:hover {
-            background-color: var(--card-bg);
-            border-color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-        }
-
-        .btn-social.linkedin { color: #0077B5; }
-        .btn-social.email { color: #D14836; }
-        .btn-social.website { color: var(--accent); }
-
-        /* Nút cuộn xuống dưới cùng Hero */
-        .scroll-down {
-            position: absolute;
-            bottom: 30px;
-            font-size: 1.5rem;
-            color: var(--accent);
-            animation: bounce 2s infinite;
-            cursor: pointer;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        /* --- CÁC SECTION TIẾP THEO --- */
-        section {
-            padding: 100px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 60px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .section-title i {
-            color: var(--accent);
-        }
-
-        /* --- 2. TOOLBOX SECTION (TẢI TỪNG ITEM) --- */
-        .toolbox-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .tool-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tool-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-        }
-
-        .tool-category {
-            color: var(--accent);
-            font-weight: 700;
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-
-        .tool-list {
-            list-style: none;
-            color: var(--text-secondary);
-            font-size: 1rem;
-        }
-
-        .tool-list li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
             gap: 10px;
         }
-
-        .tool-list li::before {
-            content: '→';
-            color: var(--accent);
-            font-weight: bold;
+        .search-input {
+            flex: 1;
+            padding: 16px 20px;
+            font-size: 1rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            outline: none;
+            transition: all 0.2s;
         }
-
-        /* --- 3. PROJECTS SECTION (TẢI TỪNG ITEM) --- */
-        .project-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 40px;
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
+        .search-input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(26, 86, 219, 0.15); }
+        .search-btn {
+            padding: 0 24px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
         }
+        .search-btn:hover { background-color: var(--primary-hover); }
 
-        .project-card:hover {
-            background-color: #1c2128;
-            transform: translateX(10px);
+        /* State Grid Section */
+        .section-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; }
+        .state-counter { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); background: var(--border); padding: 4px 12px; border-radius: 20px; }
+        
+        .state-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 14px;
+            margin-bottom: 60px;
         }
-
-        .project-header {
+        .state-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-
-        .project-name {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .project-meta {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-family: monospace;
-        }
-
-        .project-desc {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-
-        .progress-container {
-            display: flex;
             align-items: center;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .state-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            color: var(--primary);
+        }
+        .state-code { font-size: 0.8rem; color: var(--text-muted); background: var(--bg-light); padding: 4px 8px; border-radius: 4px; }
+
+        /* Bottom CTA Grid */
+        .cta-container {
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 20px;
-            background: rgba(0,0,0,0.3);
-            padding: 15px;
-            border-radius: 8px;
+            margin: 50px 0;
         }
-
-        .progress-label {
+        @media (min-width: 768px) {
+            .cta-container { grid-template-columns: 1fr 1fr; }
+        }
+        
+        .cta-card {
+            padding: 32px;
+            border-radius: var(--radius);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.08);
+        }
+        .cta-practice { background: linear-gradient(135deg, #065f46 0%, #059669 100%); }
+        .cta-blog { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+        
+        .cta-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
+        .cta-card p { font-size: 1rem; opacity: 0.9; margin-bottom: 24px; flex-grow: 1; }
+        .cta-btn {
+            display: block;
+            padding: 14px 24px;
+            background: white;
+            border-radius: var(--radius);
             font-weight: 700;
-            font-size: 0.9rem;
-        }
-
-        .progress-bar-bg {
-            flex: 1;
-            height: 12px;
-            background-color: #30363d;
-            border-radius: 6px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .progress-bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #2188ff, var(--accent));
-            border-radius: 6px;
-            width: 0; /* Animated with JS */
-            transition: width 1.5s ease-out;
-        }
-
-        .progress-percent {
-            font-family: monospace;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        /* --- FOOTER --- */
-        footer {
+            text-decoration: none;
+            transition: transform 0.2s;
             text-align: center;
-            padding: 60px 0;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
         }
+        .cta-btn:hover { transform: scale(1.02); }
+        .cta-practice .cta-btn { color: #047857; }
+        .cta-blog .cta-btn { color: #2563eb; }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .header-name { font-size: 2.2rem; }
-            .header-title { font-size: 1rem; }
-            .cv-main-info { width: 95%; }
-            .avatar { width: 140px; height: 140px; }
-            .social-links { flex-direction: column; gap: 10px; align-items: center;}
-            .btn-social { width: 90%; justify-content: center;}
-            .project-header { flex-direction: column; gap: 8px; }
-            .section-title { font-size: 1.8rem; }
+        /* Rich Content Area */
+        .content-rich {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+        .content-rich h2, .content-rich h3 { color: #111827; margin: 32px 0 12px; font-weight: 700; }
+        .content-rich h2 { font-size: 1.8rem; }
+        .content-rich h3 { font-size: 1.3rem; }
+        .content-rich p { margin-bottom: 16px; color: var(--text-muted); text-align: justify; }
+        .content-rich ul { margin: 0 0 20px 20px; color: var(--text-muted); }
+        .content-rich li { margin-bottom: 8px; }
+
+        /* No Results Alert */
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-weight: 500;
+            display: none;
         }
     </style>
 </head>
 <body>
 
-<div id="preloader">
-    <div class="spinner"></div>
+<!-- Hero & Search Bar Header -->
+<div class="hero-section">
+    <div class="container" style="padding: 0 20px;">
+        <h1>Official CDL Manuals by State</h1>
+        <p>Select your state below to instantly access, read, or download the latest official DMV Commercial Driver's License handbook.</p>
+        
+        <div class="search-box">
+            <input type="text" id="stateSearch" class="search-input" placeholder="Search your state (e.g. Texas, California, NY)..." onkeyup="filterStates()">
+            <button class="search-btn" onclick="document.getElementById('stateSearch').focus()">Search</button>
+        </div>
+    </div>
 </div>
 
 <div class="container">
-    <header class="animate__animated animate__fadeIn">
-        <div class="cv-main-info">
-            <div class="avatar-container animate__animated animate__zoomIn animate__delay-1s">
-                <img src="https://github.com/identicons/xumakha.png" alt="Ảnh Demo CV" class="avatar">
-            </div>
+    
+    <!-- State Grid Section -->
+    <section>
+        <h2 class="section-title">
+            <span>Find Your Handbook</span>
+            <span class="state-counter" id="activeCount">50 States Available</span>
+        </h2>
+        
+        <div class="state-grid" id="stateGrid">
+            <a href="/cdl-manual/alabama" class="state-card"><span class="state-name">Alabama</span><span class="state-code">AL</span></a>
+            <a href="/cdl-manual/alaska" class="state-card"><span class="state-name">Alaska</span><span class="state-code">AK</span></a>
+            <a href="/cdl-manual/arizona" class="state-card"><span class="state-name">Arizona</span><span class="state-code">AZ</span></a>
+            <a href="/cdl-manual/arkansas" class="state-card"><span class="state-name">Arkansas</span><span class="state-code">AR</span></a>
+            <a href="/cdl-manual/california" class="state-card"><span class="state-name">California</span><span class="state-code">CA</span></a>
+            <a href="/cdl-manual/colorado" class="state-card"><span class="state-name">Colorado</span><span class="state-code">CO</span></a>
+            <a href="/cdl-manual/connecticut" class="state-card"><span class="state-name">Connecticut</span><span class="state-code">CT</span></a>
+            <a href="/cdl-manual/delaware" class="state-card"><span class="state-name">Delaware</span><span class="state-code">DE</span></a>
+            <a href="/cdl-manual/florida" class="state-card"><span class="state-name">Florida</span><span class="state-code">FL</span></a>
+            <a href="/cdl-manual/georgia" class="state-card"><span class="state-name">Georgia</span><span class="state-code">GA</span></a>
+            <a href="/cdl-manual/hawaii" class="state-card"><span class="state-name">Hawaii</span><span class="state-code">HI</span></a>
+            <a href="/cdl-manual/idaho" class="state-card"><span class="state-name">Idaho</span><span class="state-code">ID</span></a>
+            <a href="/cdl-manual/illinois" class="state-card"><span class="state-name">Illinois</span><span class="state-code">IL</span></a>
+            <a href="/cdl-manual/indiana" class="state-card"><span class="state-name">Indiana</span><span class="state-code">IN</span></a>
+            <a href="/cdl-manual/iowa" class="state-card"><span class="state-name">Iowa</span><span class="state-code">IA</span></a>
+            <a href="/cdl-manual/kansas" class="state-card"><span class="state-name">Kansas</span><span class="state-code">KS</span></a>
+            <a href="/cdl-manual/kentucky" class="state-card"><span class="state-name">Kentucky</span><span class="state-code">KY</span></a>
+            <a href="/cdl-manual/louisiana" class="state-card"><span class="state-name">Louisiana</span><span class="state-code">LA</span></a>
+            <a href="/cdl-manual/maine" class="state-card"><span class="state-name">Maine</span><span class="state-code">ME</span></a>
+            <a href="/cdl-manual/maryland" class="state-card"><span class="state-name">Maryland</span><span class="state-code">MD</span></a>
+            <a href="/cdl-manual/massachusetts" class="state-card"><span class="state-name">Massachusetts</span><span class="state-code">MA</span></a>
+            <a href="/cdl-manual/michigan" class="state-card"><span class="state-name">Michigan</span><span class="state-code">MI</span></a>
+            <a href="/cdl-manual/minnesota" class="state-card"><span class="state-name">Minnesota</span><span class="state-code">MN</span></a>
+            <a href="/cdl-manual/mississippi" class="state-card"><span class="state-name">Mississippi</span><span class="state-code">MS</span></a>
+            <a href="/cdl-manual/missouri" class="state-card"><span class="state-name">Missouri</span><span class="state-code">MO</span></a>
+            <a href="/cdl-manual/montana" class="state-card"><span class="state-name">Montana</span><span class="state-code">MT</span></a>
+            <a href="/cdl-manual/nebraska" class="state-card"><span class="state-name">Nebraska</span><span class="state-code">NE</span></a>
+            <a href="/cdl-manual/nevada" class="state-card"><span class="state-name">Nevada</span><span class="state-code">NV</span></a>
+            <a href="/cdl-manual/new-hampshire" class="state-card"><span class="state-name">New Hampshire</span><span class="state-code">NH</span></a>
+            <a href="/cdl-manual/new-jersey" class="state-card"><span class="state-name">New Jersey</span><span class="state-code">NJ</span></a>
+            <a href="/cdl-manual/new-mexico" class="state-card"><span class="state-name">New Mexico</span><span class="state-code">NM</span></a>
+            <a href="/cdl-manual/new-york" class="state-card"><span class="state-name">New York</span><span class="state-code">NY</span></a>
+            <a href="/cdl-manual/north-carolina" class="state-card"><span class="state-name">North Carolina</span><span class="state-code">NC</span></a>
+            <a href="/cdl-manual/north-dakota" class="state-card"><span class="state-name">North Dakota</span><span class="state-code">ND</span></a>
+            <a href="/cdl-manual/ohio" class="state-card"><span class="state-name">Ohio</span><span class="state-code">OH</span></a>
+            <a href="/cdl-manual/oklahoma" class="state-card"><span class="state-name">Oklahoma</span><span class="state-code">OK</span></a>
+            <a href="/cdl-manual/oregon" class="state-card"><span class="state-name">Oregon</span><span class="state-code">OR</span></a>
+            <a href="/cdl-manual/pennsylvania" class="state-card"><span class="state-name">Pennsylvania</span><span class="state-code">PA</span></a>
+            <a href="/cdl-manual/rhode-island" class="state-card"><span class="state-name">Rhode Island</span><span class="state-code">RI</span></a>
+            <a href="/cdl-manual/south-carolina" class="state-card"><span class="state-name">South Carolina</span><span class="state-code">SC</span></a>
+            <a href="/cdl-manual/south-dakota" class="state-card"><span class="state-name">South Dakota</span><span class="state-code">SD</span></a>
+            <a href="/cdl-manual/tennessee" class="state-card"><span class="state-name">Tennessee</span><span class="state-code">TN</span></a>
+            <a href="/cdl-manual/texas" class="state-card"><span class="state-name">Texas</span><span class="state-code">TX</span></a>
+            <a href="/cdl-manual/utah" class="state-card"><span class="state-name">Utah</span><span class="state-code">UT</span></a>
+            <a href="/cdl-manual/vermont" class="state-card"><span class="state-name">Vermont</span><span class="state-code">VT</span></a>
+            <a href="/cdl-manual/virginia" class="state-card"><span class="state-name">Virginia</span><span class="state-code">VA</span></a>
+            <a href="/cdl-manual/washington" class="state-card"><span class="state-name">Washington</span><span class="state-code">WA</span></a>
+            <a href="/cdl-manual/west-virginia" class="state-card"><span class="state-name">West Virginia</span><span class="state-code">WV</span></a>
+            <a href="/cdl-manual/wisconsin" class="state-card"><span class="state-name">Wisconsin</span><span class="state-code">WI</span></a>
+            <a href="/cdl-manual/wyoming" class="state-card"><span class="state-name">Wyoming</span><span class="state-code">WY</span></a>
             
-            <h1 class="header-name animate__animated animate__fadeInUp animate__delay-2s">Tuan Nguyen Vu</h1>
-            <p class="header-title animate__animated animate__fadeInUp animate__delay-2s">Technical SEO Executive | Data & Product Strategy</p>
-            
-            <p class="quote animate__animated animate__fadeInUp animate__delay-3s">
-                "Biến dữ liệu thành thứ hạng, biến cấu trúc thành trải nghiệm. Một Technical SEOer am hiểu sản phẩm và SQL."
-            </p>
-
-            <div class="social-links animate__animated animate__fadeInUp animate__delay-3s">
-                <a href="YOUR_LINKEDIN_URL" class="btn-social linkedin" target="_blank">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <a href="mailto:your-email@gmail.com" class="btn-social email">
-                    <i class="fas fa-envelope"></i> Email
-                </a>
-                <a href="#toolbox" class="btn-social website">
-                    <i class="fas fa-tools"></i> Xem Toolbox
-                </a>
-            </div>
-        </div>
-        <a href="#toolbox"><i class="fas fa-chevron-down scroll-down"></i></a>
-    </header>
-
-    <section id="toolbox" class="reveal">
-        <h2 class="section-title"><i class="fas fa-tools"></i> My SEO Toolbox</h2>
-        <div class="toolbox-grid">
-            <div class="tool-card reveal-item">
-                <p class="tool-category">Technical SEO</p>
-                <ul class="tool-list">
-                    <li>Sitemap L2/3 Architecture</li>
-                    <li>Schema JSON-LD</li>
-                    <li>PageSpeed Insights</li>
-                    <li>Robots.txt & Meta</li>
-                </ul>
-            </div>
-            <div class="tool-card reveal-item">
-                <p class="tool-category">Data & SQL</p>
-                <ul class="tool-list">
-                    <li>SQL (Update/Tracking)</li>
-                    <li>GSC API automation</li>
-                    <li>GA4 / BigQuery</li>
-                    <li>Entity Building</li>
-                </ul>
-            </div>
-            <div class="tool-card reveal-item">
-                <p class="tool-category">Core Tools</p>
-                <ul class="tool-list">
-                    <li>Ahrefs / SEMrush</li>
-                    <li>Screaming Frog</li>
-                    <li>Google Search Console</li>
-                    <li>Jira / Team Collaboration</li>
-                </ul>
-            </div>
+            <div class="no-results" id="noResults">No states match your search query. Please try again!</div>
         </div>
     </section>
 
-    <section id="projects" class="reveal">
-        <h2 class="section-title"><i class="fas fa-chart-line"></i> Performance Tracking (2026)</h2>
-
-        <div class="project-card reveal-item">
-            <div class="project-header">
-                <a href="https://worksheetzone.org" target="_blank" class="project-name">Worksheetzone.org</a>
-                <span class="project-meta">Role: SEO Lead</span>
+    <!-- 2-Column Bottom CTA Section -->
+    <section class="cta-container">
+        <!-- CTA 1: Practice Test -->
+        <div class="cta-card cta-practice">
+            <div>
+                <h3>Ready to Test Your Knowledge?</h3>
+                <p>Reading the manual is just the first step. Turn your theoretical knowledge into top scores with our free, updated CDL Practice Tests.</p>
             </div>
-            <p class="project-desc">Leading growth for multiple sites, implementing complex Schema (FAQ, LearningResource, Person) and managing resources. Targeted KPI for April 2026.</p>
-            <div class="progress-container">
-                <span class="progress-label">Goal: 40,000 Clicks</span>
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" data-percent="65"></div>
-                </div>
-                <span class="progress-percent">65%</span>
-            </div>
+            <a href="/cdl-practice-test" class="cta-btn">Start Free Practice Test</a>
         </div>
 
-        <div class="project-card reveal-item">
-            <div class="project-header">
-                <a href="https://fcoplayers.com" target="_blank" class="project-name">fcoplayers.com</a>
-                <span class="project-meta">Role: Product Strategy</span>
+        <!-- CTA 2: Blog/Guides -->
+        <div class="cta-card cta-blog">
+            <div>
+                <h3>CDL Resource Center & Guides</h3>
+                <p>Confused about Class A vs Class B licenses? Want to know the latest medical requirement updates or salary insights? Explore our step-by-step career guides.</p>
             </div>
-            <p class="project-desc">Product optimization & SQL data management for a massive player database. Developing "Squad Builder" and "Player Comparison" features.</p>
-            <div class="progress-container">
-                <span class="progress-label">Goal: Feature Launch</span>
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" data-percent="85"></div>
-                </div>
-                <span class="progress-percent">85%</span>
-            </div>
-        </div>
-
-        <div class="project-card reveal-item">
-            <div class="project-header">
-                <a href="https://easy-pass.app" target="_blank" class="project-name">easy-pass.app</a>
-                <span class="project-meta">Goal: 1k Impr/day</span>
-            </div>
-            <p class="project-desc">Achieving 1,000 impressions/day by April 30, 2026. Ongoing on-page optimization.</p>
-            <div class="progress-container">
-                <span class="progress-label">Progress</span>
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" data-percent="40"></div>
-                </div>
-                <span class="progress-percent">40%</span>
-            </div>
+            <a href="/blog/cdl-guide" class="cta-btn">Read CDL Career Guides</a>
         </div>
     </section>
 
-    <footer class="reveal">
-        <p>&copy; 2026 [Tên Của Bạn]. Optimizing for users first, search engines second.</p>
-        <p>Built with ❤️ on GitHub Pages.</p>
-    </footer>
+    <!-- Deep SEO Informational Content -->
+    <article class="content-rich">
+        <h2>How to Use Your State's CDL Manual Effectively</h2>
+        <p>An official Commercial Driver's License (CDL) manual is the ultimate foundation for anyone looking to enter the commercial trucking industry. Issued directly by state departments like the DMV, DOT, or BMV, these handbooks contain 100% accurate regulations, specific state road rules, and technical knowledge required for the written permit exams.</p>
+        <p>However, simply reading a 100+ page document front-to-back can be overwhelming. To optimize your study time, follow these core sections closely:</p>
+        
+        <h3>1. The General Knowledge Core</h3>
+        <p>Every single CDL applicant—whether aiming for Class A, Class B, or Class C licenses—must pass the General Knowledge exam. This section covers vehicle inspection protocols, basic control of your vehicle, shifting gears, managing space and speed, driving under hazardous conditions, and emergency procedures.</p>
+
+        <h3>2. Air Brakes & Combination Sections</h3>
+        <p>If you plan to operate a standard tractor-trailer (Class A), you will mandatory need to master the <strong>Combination Vehicles</strong> and <strong>Air Brakes</strong> sections. Pay close attention to air brake system components, dual air brake systems, and how to inspect them safely before heading to the DMV test center.</p>
+
+        <h3>3. Endorsements</h3>
+        <p>Looking to drive a school bus, tank vehicle, or haul hazardous materials? Your state manual includes dedicated chapters for specific endorsements:</p>
+        <ul>
+            <li><strong>HazMat (N):</strong> Necessary for transporting dangerous materials requiring placards.</li>
+            <li><strong>Tanker (X):</strong> Teaches surge control and liquid weight distribution rules.</li>
+            <li><strong>Passenger (P) & School Bus (S):</strong> Covers specialized loading, unloading, and student safety regulations.</li>
+        </ul>
+    </article>
+
 </div>
 
+<!-- Filtering Script -->
 <script>
-    // --- 1. XỬ LÝ PRELOADER & HIỆU ỨNG LOAD TRANG ---
-    window.addEventListener('load', function() {
-        const preloader = document.getElementById('preloader');
-        // Ẩn Preloader mượt mà
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 1000); // Đợi 1s sau khi fade-out
-    });
-
-    // --- 2. XỬ LÝ HIỆU ỨNG CHUYỂN CẢNH KHI SCROLL (Reveal on Scroll) ---
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
+function filterStates() {
+    let input = document.getElementById('stateSearch').value.toLowerCase();
+    let cards = document.getElementsByClassName('state-card');
+    let noResults = document.getElementById('noResults');
+    let counter = document.getElementById('activeCount');
+    let visibleCount = 0;
+    
+    for (let i = 0; i < cards.length; i++) {
+        let stateName = cards[i].querySelector('.state-name').innerText.toLowerCase();
+        let stateCode = cards[i].querySelector('.state-code').innerText.toLowerCase();
         
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 150; // Khoảng cách từ dưới lên để kích hoạt
-
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add("active");
-                // Kích hoạt animation thanh progress bên trong section này
-                activateProgressBars(reveals[i]);
-            }
+        if (stateName.includes(input) || stateCode.includes(input)) {
+            cards[i].style.display = "flex";
+            visibleCount++;
+        } else {
+            cards[i].style.display = "none";
         }
     }
-
-    // --- 3. HIỆU ỨNG THANH PROGRESS CHẠY DẦN ---
-    function activateProgressBars(container) {
-        var progressBars = container.querySelectorAll(".progress-bar-fill");
-        progressBars.forEach(function(bar) {
-            if (!bar.classList.contains('animated')) {
-                var percent = bar.getAttribute("data-percent");
-                bar.style.width = percent + "%";
-                bar.classList.add('animated'); // Đánh dấu chỉ chạy 1 lần
-            }
-        });
+    
+    if (visibleCount === 0) {
+        noResults.style.display = "block";
+        counter.innerText = "0 States Found";
+    } else {
+        noResults.style.display = "none";
+        counter.innerText = visibleCount + " " + (visibleCount === 1 ? "State" : "States") + " Available";
     }
-
-    // Lắng nghe sự kiện scroll và chạy Reveal lần đầu khi load
-    window.addEventListener("scroll", reveal);
-    // Chạy reveal() một lần khi load để hiện phần Hero nếu cần
-    // (trong cấu trúc này Hero đã load bằng Animate.css nên reveal() chủ yếu dùng cho scroll)
-    window.addEventListener("load", reveal);
+}
 </script>
 
 </body>
